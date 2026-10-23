@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- =====================================================================
+       SEO & OTIMIZAÇÃO PARA MOTORES DE BUSCA (SEO / CEO)
+       ===================================================================== -->
+  <title>Aprendizagem Jovem — Plataforma de Oportunidades, Qualificação & Clube de Benefícios</title>
+  <meta name="title" content="Aprendizagem Jovem — Plataforma de Oportunidades, Qualificação & Clube de Benefícios" />
+  <meta name="description" content="Plataforma Aprendizagem Jovem — Conectando jovens aprendizes a vagas de emprego, capacitação prática de mercado e clube de benefícios gamificado com resgate de cupons reais por pontos." />
+  <meta name="keywords" content="Jovem Aprendiz, Aprendizagem Jovem, primeiro emprego, vagas jovem aprendiz, capacitação profissional, clube de benefícios, cursos gratuitos, estágio, currículo, qualificação técnica" />
+  <meta name="author" content="Plataforma Aprendizagem Jovem" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#4f46e5" />
+  <link rel="canonical" href="https://aprendizagemjovem.org.br/" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aprendizagemjovem.org.br/" />
+  <meta property="og:site_name" content="Aprendizagem Jovem" />
+  <meta property="og:title" content="Aprendizagem Jovem — Plataforma de Oportunidades, Qualificação & Clube de Benefícios" />
+  <meta property="og:description" content="A plataforma completa para impulsionar a carreira do Jovem Aprendiz com cursos rápidos, cálculo de match com vagas de emprego e cupons reais." />
+  <meta property="og:image" content="/logo.svg" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://aprendizagemjovem.org.br/" />
+  <meta name="twitter:title" content="Aprendizagem Jovem — Plataforma de Oportunidades & Qualificação" />
+  <meta name="twitter:description" content="Conectando jovens talentos a grandes empresas através de capacitação técnica prática e clube de benefícios gamificado." />
+  <meta name="twitter:image" content="/logo.svg" />
+
+  <!-- Favicons & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- Structured Data (Schema.org JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Aprendizagem Jovem",
+    "url": "https://aprendizagemjovem.org.br/",
+    "logo": "https://aprendizagemjovem.org.br/favicon.svg",
+    "description": "Plataforma de capacitação prática e inserção produtiva de jovens aprendizes no mercado de trabalho.",
+    "sameAs": [],
+    "offers": {
+      "@type": "Offer",
+      "category": "Capacitação Profissional e Oportunidades de Aprendizagem",
+      "price": "0",
+      "priceCurrency": "BRL"
+    }
+  }
+  </script>
+
+  <!-- Tipografia Moderna (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Estilos da Aplicação (Vanilla CSS) -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- =====================================================================
+       HEADER / NAVBAR SUPERIOR
+       ===================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Marca / Logo Oficial da Aprendizagem Jovem -->
+      <a class="brand" id="btn-brand-home" title="Página Inicial — Aprendizagem Jovem" href="#">
+        <img src="/favicon.svg" alt="Ícone Aprendizagem Jovem" class="brand-icon-svg" width="38" height="38" />
+        <div class="brand-text-group">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="brand-text">Aprendizagem Jovem</span>
+            <span class="brand-tag">OFICIAL</span>
+          </div>
+          <span class="brand-subtext">Plataforma de Oportunidades</span>
+        </div>
+      </a>
+
+      <!-- Links Públicos (Quando Deslogado ou na Home) -->
+      <nav class="nav-links" id="public-nav">
+        <a class="nav-link active" data-target="home">Início</a>
+        <a class="nav-link" data-scroll="como-funciona">Como Funciona</a>
+        <a class="nav-link" data-scroll="clube-preview">Clube de Benefícios</a>
+        <a class="nav-link" data-scroll="vagas-preview">Vagas em Aberto</a>
+      </nav>
+
+      <!-- Ações do Header (Alterna entre Deslogado e Logado) -->
+      <div class="header-actions">
+        <!-- Estado: Deslogado -->
+        <div id="header-guest-actions">
+          <button class="btn btn-primary" id="btn-nav-login">
+            <span>Acessar Portal / Login</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <!-- Estado: Logado (Pós-Login) -->
+        <div id="header-user-actions" class="hidden" style="display: flex; align-items: center; gap: 10px;">
+          <!-- Badge de Permissão -->
+          <span class="badge" id="header-role-badge">🟢 Jovem Aprendiz</span>
+
+          <!-- Saldo de Pontos (Se Jovem) -->
+          <div class="badge badge-emerald" id="header-points-badge" style="font-family: var(--font-mono); font-size: 0.82rem;">
+            ⭐ <span id="header-points-val">480</span> pts
+          </div>
+
+          <!-- Botão Rápido de Alternar Perfil (Facilitador de Avaliação de MVP) -->
+          <button class="btn btn-sm btn-secondary" id="btn-toggle-role" title="Alternar entre visão Jovem e visão Administrador para testes">
+            <span>⇄ Alternar Perfil</span>
+          </button>
+
+          <!-- Botão Sair -->
+          <button class="btn btn-sm btn-outline" id="btn-logout" title="Sair da conta">
+            <span>Sair</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       MAIN: GERENCIAMENTO DE TELAS (HOME | LOGIN | PÓS-LOGIN DASHBOARD)
+       ===================================================================== -->
+  <main id="app-main">
+
+    <!-- ===================================================================
+         VIEW 1: HOME (PÁGINA INICIAL / LANDING PAGE)
+         =================================================================== -->
+    <section id="view-home">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="container">
+          <div class="hero-pill">
+            <span class="badge badge-indigo">🚀 Plataforma Oficial de Inserção Profissional</span>
+          </div>
+          <h1 class="hero-title">
+            Conectando o Futuro do <span>Jovem Aprendiz</span> ao Mercado de Trabalho
+          </h1>
+          <p class="hero-desc">
+            A primeira plataforma gamificada que une capacitação prática, clube de benefícios com resgate de cupons reais e conexão inteligente com grandes empresas contratantes.
+          </p>
+
+          <div class="hero-cta-group">
+            <button class="btn btn-lg btn-primary" id="hero-btn-login">
+              <span>Entrar na Plataforma</span>
+              <span>→</span>
+            </button>
+            <button class="btn btn-lg btn-secondary" id="hero-btn-demo-youth">
+              <span>👤 Testar como Jovem Aprendiz</span>
+            </button>
+            <button class="btn btn-lg btn-outline" id="hero-btn-demo-admin">
+              <span>⚙️ Acessar como Administrador</span>
+            </button>
+          </div>
+
+          <!-- Faixa de Métricas do MVP -->
+          <div class="metrics-strip">
+            <div class="metric-card">
+              <div class="metric-number">+1.240</div>
+              <div class="metric-label">Jovens Capacitados</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-number">85+</div>
+              <div class="metric-label">Vagas de Aprendizagem</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-number">+3.800</div>
+              <div class="metric-label">Cupons Resgatados</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-number">94%</div>
+              <div class="metric-label">Taxa de Aprovação</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção: Como Funciona -->
+      <section class="section-wrapper bg-alt" id="como-funciona">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-badge">Jornada Simples & Transparente</div>
+            <h2 class="section-title">Como funciona a Aprendizagem Jovem?</h2>
+            <p class="section-subtitle">
+              Criamos uma trilha motivadora onde o esforço do jovem nos estudos se converte em benefícios imediatos e oportunidades reais de emprego.
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <h3 class="step-title">Estude & Ganhe Pontos</h3>
+              <p class="step-text">
+                Realize micro-módulos práticos de 5 a 10 minutos (Excel, Atendimento, Lógica, Comunicação). Cada conquista gera pontos automáticos na sua carteira.
+              </p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <h3 class="step-title">Resgate Cupons no Clube</h3>
+              <p class="step-text">
+                Troque seus pontos acumulados por vouchers reais de alimentação (iFood), transporte (ônibus), lazer (cinema) e pacotes de internet móvel.
+              </p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <h3 class="step-title">Match Direto com Vagas</h3>
+              <p class="step-text">
+                O sistema analisa as habilidades que você desenvolveu e calcula seu percentual de compatibilidade com as empresas parceiras, acelerando sua contratação.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção: Clube de Benefícios (Vitrine Preview) -->
+      <section class="section-wrapper" id="clube-preview">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-badge">Gamificação Real</div>
+            <h2 class="section-title">Clube de Benefícios & Recompensas</h2>
+            <p class="section-subtitle">
+              Seu aprendizado tem valor concreto. Veja alguns dos benefícios que os jovens resgatam todos os dias:
+            </p>
+          </div>
+
+          <div class="cards-grid" id="home-coupons-grid">
+            <!-- Injetado dinamicamente via JS -->
+          </div>
+
+          <div style="text-align: center; margin-top: 36px;">
+            <button class="btn btn-secondary" id="btn-preview-login-club">
+              <span>Faça login para ver todos os cupons disponíveis</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção: Vagas em Aberto (Preview) -->
+      <section class="section-wrapper bg-alt" id="vagas-preview">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-badge">Primeiro Emprego</div>
+            <h2 class="section-title">Oportunidades em Empresas Parceiras</h2>
+            <p class="section-subtitle">
+              Vagas de Jovem Aprendiz com remuneração garantida por lei, bolsa-auxílio, vale transporte e acompanhamento pedagógico.
+            </p>
+          </div>
+
+          <div class="cards-grid" id="home-jobs-grid">
+            <!-- Injetado dinamicamente via JS -->
+          </div>
+
+          <div style="text-align: center; margin-top: 36px;">
+            <button class="btn btn-primary" id="btn-preview-login-jobs">
+              <span>Acesse sua conta para se candidatar às vagas</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção: Chamada Final (CTA) -->
+      <section class="section-wrapper" style="text-align: center; background: radial-gradient(circle at 50% 50%, #e0e7ff 0%, #ffffff 80%);">
+        <div class="container">
+          <h2 class="section-title" style="font-size: 2.2rem; max-width: 600px; margin: 0 auto 16px;">
+            Pronto para transformar sua trajetória profissional?
+          </h2>
+          <p class="section-subtitle" style="margin-bottom: 28px;">
+            Cadastre-se gratuitamente ou acesse agora o portal da Aprendizagem Jovem.
+          </p>
+          <button class="btn btn-lg btn-primary" id="btn-cta-bottom">
+            <span>Começar Agora na Aprendizagem Jovem</span>
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+    </section>
+
+
+    <!-- ===================================================================
+         VIEW 2: LOGIN (PÁGINA DE AUTENTICAÇÃO)
+         =================================================================== -->
+    <section id="view-login" class="hidden">
+      <div class="auth-wrapper">
+        <div class="auth-card">
+          <!-- Botão Voltar -->
+          <div style="margin-bottom: 16px;">
+            <button class="btn btn-sm btn-outline" id="btn-login-back-home" style="border: none; padding-left: 0; color: var(--color-text-muted);">
+              <span>← Voltar para a Home</span>
+            </button>
+          </div>
+
+          <div class="auth-header">
+            <h2 class="auth-title">Acesse sua Conta</h2>
+            <p class="auth-subtitle">Entre no portal do Jovem Aprendiz ou na Gestão Administrativa</p>
+          </div>
+
+          <!-- BLOCO ESPECIAL: ACESSO RÁPIDO PARA AVALIAÇÃO DO MVP (1 CLIQUE) -->
+          <div class="demo-access-box">
+            <div class="demo-access-title">
+              <span>⚡</span> Acesso Rápido de Demonstração (MVP)
+            </div>
+            <p style="font-size: 0.78rem; color: var(--color-text-body); margin-bottom: 12px; line-height: 1.4;">
+              Clique em um dos perfis abaixo para testar instantaneamente os diferentes níveis de permissão sem precisar digitar:
+            </p>
+            <div class="demo-buttons-grid">
+              <button class="btn btn-sm btn-primary" id="btn-quick-youth" style="width: 100%;">
+                👤 Jovem Aprendiz
+              </button>
+              <button class="btn btn-sm btn-admin" id="btn-quick-admin" style="width: 100%;">
+                ⚙️ Administrador
+              </button>
+            </div>
+          </div>
+
+          <!-- Abas: Entrar / Criar Conta -->
+          <div class="auth-tabs">
+            <button class="auth-tab-btn active" id="tab-login-btn">Entrar</button>
+            <button class="auth-tab-btn" id="tab-register-btn">Criar Nova Conta</button>
+          </div>
+
+          <!-- FORMULÁRIO 1: LOGIN -->
+          <form id="form-login">
+            <div class="form-group">
+              <label class="form-label" for="login-role">Tipo de Acesso (Nível de Permissão)</label>
+              <select class="form-select" id="login-role">
+                <option value="youth">Jovem Aprendiz (Aluno)</option>
+                <option value="admin">Administrador (Coordenação Aprendizagem Jovem)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="login-email">E-mail Cadastrado</label>
+              <input type="email" class="form-input" id="login-email" value="lucas.silva@aprendizagemjovem.org.br" placeholder="seu.email@exemplo.com" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="login-password">Senha de Acesso</label>
+              <input type="password" class="form-input" id="login-password" value="aprendiz2026" placeholder="••••••••" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+              <span>Entrar no Sistema</span>
+              <span>→</span>
+            </button>
+          </form>
+
+          <!-- FORMULÁRIO 2: CADASTRO NOVO JOVEM -->
+          <form id="form-register" class="hidden">
+            <div class="form-group">
+              <label class="form-label" for="reg-name">Nome Completo</label>
+              <input type="text" class="form-input" id="reg-name" placeholder="Ex: Mariana Ferreira" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-email">E-mail</label>
+              <input type="email" class="form-input" id="reg-email" placeholder="mariana@exemplo.com" required />
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div class="form-group">
+                <label class="form-label" for="reg-age">Idade (14 a 24)</label>
+                <input type="number" class="form-input" id="reg-age" min="14" max="24" value="18" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-shift">Turno de Estudo</label>
+                <select class="form-select" id="reg-shift">
+                  <option value="Manhã">Manhã</option>
+                  <option value="Tarde">Tarde</option>
+                  <option value="Noite">Noite</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-neighborhood">Bairro / Região</label>
+              <input type="text" class="form-input" id="reg-neighborhood" placeholder="Ex: Boqueirão, CIC, Centro" required />
+            </div>
+
+            <button type="submit" class="btn btn-success" style="width: 100%; margin-top: 10px;">
+              <span>Concluir Cadastro & Ganhar 100 pts</span>
+              <span>🎉</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         VIEW 3: PÓS-LOGIN (DASHBOARD COM CONTROLE DE PERMISSÃO)
+         =================================================================== -->
+    <section id="view-dashboard" class="hidden dashboard-wrapper">
+      <div class="container">
+
+        <!-- BANNER DE CONTEXTO DO USUÁRIO LOGADO -->
+        <div class="user-context-banner">
+          <div class="user-profile-info">
+            <div class="user-avatar" id="dash-avatar">L</div>
+            <div>
+              <div class="user-name" id="dash-name">Lucas Silva</div>
+              <div class="user-meta">
+                <span class="badge" id="dash-role-badge">🟢 Jovem Aprendiz</span>
+                <span id="dash-user-extra">Boqueirão · 18 anos</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Métricas Rápidas do Topo do Dashboard -->
+          <div class="user-stats-strip" id="dash-youth-stats">
+            <div class="stat-pill">
+              <div class="stat-pill-value" style="color: var(--color-primary);" id="dash-points-display">480</div>
+              <div class="stat-pill-label">Pontos Clube</div>
+            </div>
+            <div class="stat-pill">
+              <div class="stat-pill-value" style="color: var(--color-warning);" id="dash-streak-display">🔥 6 dias</div>
+              <div class="stat-pill-label">Ofensiva Diária</div>
+            </div>
+            <div class="stat-pill">
+              <div class="stat-pill-value" style="color: var(--color-success);" id="dash-vouchers-count">1</div>
+              <div class="stat-pill-label">Vouchers Ativos</div>
+            </div>
+          </div>
+
+          <!-- Seletor Rápido de Jovem (Para Simulação no MVP) -->
+          <div id="dash-switch-youth-box" style="display: flex; align-items: center; gap: 8px;">
+            <label style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted);">Simular Perfil:</label>
+            <select class="form-select" id="select-active-youth" style="padding: 6px 10px; font-size: 0.82rem; width: auto;">
+              <!-- Preenchido via JS -->
+            </select>
+          </div>
+        </div>
+
+
+        <!-- ===============================================================
+             ÁREA PÓS-LOGIN A: PERMISSÃO DO JOVEM APRENDIZ
+             =============================================================== -->
+        <div id="panel-youth">
+          <!-- Abas de Navegação do Jovem -->
+          <div class="dash-tabs">
+            <button class="dash-tab-btn active" data-tab="youth-coupons">
+              <span>🎁 Clube de Benefícios & Vouchers</span>
+            </button>
+            <button class="dash-tab-btn" data-tab="youth-courses">
+              <span>📚 Cursos & Qualificação (+Pontos)</span>
+            </button>
+            <button class="dash-tab-btn" data-tab="youth-jobs">
+              <span>💼 Vagas & Minhas Candidaturas</span>
+            </button>
+            <button class="dash-tab-btn" data-tab="youth-ai">
+              <span>🤖 Mentor Virtual IA</span>
+            </button>
+          </div>
+
+          <!-- SUB-ABA 1: CLUBE DE BENEFÍCIOS -->
+          <div id="tab-youth-coupons" class="dash-tab-content">
+            <!-- Barra de Meus Vouchers Ativos (Se houver) -->
+            <div id="my-vouchers-section" style="margin-bottom: 32px;">
+              <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                <span>🎟️ Meus Vouchers Resgatados</span>
+                <span class="badge badge-emerald" id="vouchers-counter-badge">1 Ativo</span>
+              </h3>
+              <div class="cards-grid" id="my-vouchers-grid">
+                <!-- Injetado dinamicamente via JS -->
+              </div>
+            </div>
+
+            <!-- Catálogo de Cupons Disponíveis para Resgate -->
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-title);">
+                  Vitrine do Clube de Benefícios
+                </h3>
+                <p style="font-size: 0.88rem; color: var(--color-text-muted);">
+                  Escolha seu benefício e resgate na hora usando seus pontos de estudo.
+                </p>
+              </div>
+
+              <!-- Filtro de Categoria -->
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="coupon-category-filters">
+                <button class="btn btn-sm btn-primary filter-coupon-btn active" data-cat="all">Todos</button>
+                <button class="btn btn-sm btn-secondary filter-coupon-btn" data-cat="Alimentação">Alimentação</button>
+                <button class="btn btn-sm btn-secondary filter-coupon-btn" data-cat="Transporte">Transporte</button>
+                <button class="btn btn-sm btn-secondary filter-coupon-btn" data-cat="Lazer">Lazer</button>
+                <button class="btn btn-sm btn-secondary filter-coupon-btn" data-cat="Educação">Educação</button>
+                <button class="btn btn-sm btn-secondary filter-coupon-btn" data-cat="Internet">Internet</button>
+              </div>
+            </div>
+
+            <!-- Grade de Cupons do Jovem -->
+            <div class="cards-grid" id="youth-coupons-grid">
+              <!-- Injetado dinamicamente via JS -->
+            </div>
+          </div>
+
+          <!-- SUB-ABA 2: CURSOS E QUALIFICAÇÃO -->
+          <div id="tab-youth-courses" class="dash-tab-content hidden">
+            <!-- Box de Metas Diárias -->
+            <div style="background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 28px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+                <div>
+                  <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--color-text-title);">
+                    🎯 Metas Diárias de Estudo (Gamificação)
+                  </h3>
+                  <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+                    Complete as metas para manter sua ofensiva e ganhar bônus de pontos!
+                  </p>
+                </div>
+                <div class="badge badge-amber" style="font-size: 0.85rem; font-weight: 700;">
+                  Meta Atual: <span id="daily-goals-count">2/4 concluídas</span>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;" id="daily-goals-container">
+                <!-- Preenchido via JS -->
+              </div>
+            </div>
+
+            <!-- Trilhas de Cursos Práticos -->
+            <div style="margin-bottom: 16px;">
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-title); margin-bottom: 4px;">
+                Trilhas de Capacitação Rápida
+              </h3>
+              <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 20px;">
+                Conclua aulas de 5 a 10 minutos para subir de nível e ganhar pontos instantâneos no Clube.
+              </p>
+            </div>
+
+            <div class="cards-grid" id="youth-courses-grid">
+              <!-- Injetado dinamicamente via JS -->
+            </div>
+          </div>
+
+          <!-- SUB-ABA 3: VAGAS E CANDIDATURAS -->
+          <div id="tab-youth-jobs" class="dash-tab-content hidden">
+            <!-- Minhas Candidaturas Ativas -->
+            <div style="background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 32px;">
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--color-text-title); margin-bottom: 4px;">
+                📋 Minhas Candidaturas & Linha do Tempo
+              </h3>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 20px;">
+                Acompanhe em tempo real o status de feedback com as empresas parceiras.
+              </p>
+              <div id="my-applications-list">
+                <!-- Injetado dinamicamente via JS -->
+              </div>
+            </div>
+
+            <!-- Vagas Disponíveis com Match -->
+            <div style="margin-bottom: 16px;">
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-title); margin-bottom: 4px;">
+                Vagas Recomendadas para o seu Perfil
+              </h3>
+              <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 20px;">
+                O cálculo de Match é atualizado automaticamente conforme as competências que você desenvolve.
+              </p>
+            </div>
+
+            <div class="cards-grid" id="youth-jobs-grid">
+              <!-- Injetado dinamicamente via JS -->
+            </div>
+          </div>
+
+          <!-- SUB-ABA 4: MENTOR VIRTUAL IA -->
+          <div id="tab-youth-ai" class="dash-tab-content hidden">
+            <div style="max-width: 800px; margin: 0 auto;">
+              <div style="margin-bottom: 16px; text-align: center;">
+                <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--color-text-title);">
+                  🤖 Mentor Virtual de Carreira
+                </h3>
+                <p style="font-size: 0.9rem; color: var(--color-text-muted);">
+                  Tire dúvidas sobre seu currículo, simule perguntas reais de entrevista e receba dicas personalizadas.
+                </p>
+              </div>
+
+              <!-- Sugestões de Perguntas Rápidas -->
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 16px;">
+                <button class="btn btn-sm btn-secondary quick-prompt-btn" data-prompt="Como me comportar na primeira entrevista de Jovem Aprendiz?">
+                  🎤 Dicas para 1ª Entrevista
+                </button>
+                <button class="btn btn-sm btn-secondary quick-prompt-btn" data-prompt="O que colocar no currículo sem ter experiência formal?">
+                  📄 Currículo sem experiência
+                </button>
+                <button class="btn btn-sm btn-secondary quick-prompt-btn" data-prompt="Quais fórmulas de Excel são mais pedidas em testes administrativos?">
+                  📊 Fórmulas de Excel essenciais
+                </button>
+              </div>
+
+              <!-- Caixa de Chat -->
+              <div class="chat-container">
+                <div class="chat-messages" id="chat-messages-box">
+                  <div class="chat-bubble bot">
+                    Olá, <strong>Lucas</strong>! Eu sou o seu Mentor Virtual da <strong>Aprendizagem Jovem</strong>. Como posso ajudar você hoje a se preparar para conquistar sua vaga de Jovem Aprendiz ou aproveitar melhor seus benefícios?
+                  </div>
+                </div>
+
+                <form class="chat-input-row" id="form-chat">
+                  <input type="text" class="form-input" id="chat-user-input" placeholder="Digite sua dúvida ou simule uma resposta..." required />
+                  <button type="submit" class="btn btn-primary" id="btn-chat-send">
+                    <span>Enviar</span>
+                    <span>→</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ===============================================================
+             ÁREA PÓS-LOGIN B: PERMISSÃO DO ADMINISTRADOR (COORDENAÇÃO APRENDIZAGEM JOVEM)
+             =============================================================== -->
+        <div id="panel-admin" class="hidden">
+          <!-- KPIs do Administrador no MVP -->
+          <div class="admin-metrics-grid">
+            <div class="admin-metric-card">
+              <div class="admin-metric-icon">👥</div>
+              <div>
+                <div class="stat-pill-value" id="admin-kpi-youths">248</div>
+                <div class="stat-pill-label">Alunos Ativos</div>
+              </div>
+            </div>
+            <div class="admin-metric-card">
+              <div class="admin-metric-icon">💼</div>
+              <div>
+                <div class="stat-pill-value" id="admin-kpi-jobs">12</div>
+                <div class="stat-pill-label">Vagas Abertas</div>
+              </div>
+            </div>
+            <div class="admin-metric-card">
+              <div class="admin-metric-icon">🎟️</div>
+              <div>
+                <div class="stat-pill-value" id="admin-kpi-vouchers">342</div>
+                <div class="stat-pill-label">Cupons Resgatados</div>
+              </div>
+            </div>
+            <div class="admin-metric-card">
+              <div class="admin-metric-icon">⭐</div>
+              <div>
+                <div class="stat-pill-value" id="admin-kpi-points">18.9k</div>
+                <div class="stat-pill-label">Pontos Distribuídos</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Abas do Administrador -->
+          <div class="dash-tabs">
+            <button class="dash-tab-btn active active-admin" data-admin-tab="admin-talents">
+              <span>👥 Banco de Talentos & Triagem</span>
+            </button>
+            <button class="dash-tab-btn" data-admin-tab="admin-jobs">
+              <span>💼 Gestão de Vagas das Empresas</span>
+            </button>
+            <button class="dash-tab-btn" data-admin-tab="admin-coupons">
+              <span>🎁 Gestão do Clube de Benefícios</span>
+            </button>
+          </div>
+
+          <!-- SUB-ABA ADMIN 1: BANCO DE TALENTOS -->
+          <div id="tab-admin-talents" class="admin-tab-content">
+            <div style="background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+              <!-- Busca -->
+              <div style="flex: 1; min-width: 260px;">
+                <input type="text" class="form-input" id="search-talent-input" placeholder="🔍 Buscar aluno por nome, bairro ou competência..." />
+              </div>
+              <!-- Filtro de Idade (Importante para regras de contratação) -->
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <label style="font-size: 0.85rem; font-weight: 600; color: var(--color-text-body);">Filtro:</label>
+                <select class="form-select" id="filter-talent-age" style="width: auto;">
+                  <option value="all">Todas as Faixas Etárias</option>
+                  <option value="18plus">+18 anos (Vagas sem restrição de horário)</option>
+                  <option value="under18">14 a 17 anos (Menor de idade c/ LGPD)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Tabela de Alunos -->
+            <div class="table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Nome do Jovem</th>
+                    <th>Idade / Bairro</th>
+                    <th>Competências Chave</th>
+                    <th>Pontuação</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-talents-tbody">
+                  <!-- Injetado dinamicamente via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SUB-ABA ADMIN 2: GESTÃO DE VAGAS -->
+          <div id="tab-admin-jobs" class="admin-tab-content hidden">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-title);">
+                  Vagas de Aprendizagem Cadastradas
+                </h3>
+                <p style="font-size: 0.88rem; color: var(--color-text-muted);">
+                  Gerencie as oportunidades oferecidas pelas empresas conveniadas.
+                </p>
+              </div>
+              <button class="btn btn-admin" id="btn-modal-new-job">
+                <span>➕ Cadastrar Nova Vaga</span>
+              </button>
+            </div>
+
+            <div class="cards-grid" id="admin-jobs-grid">
+              <!-- Injetado dinamicamente via JS -->
+            </div>
+          </div>
+
+          <!-- SUB-ABA ADMIN 3: GESTÃO DE CUPONS -->
+          <div id="tab-admin-coupons" class="admin-tab-content hidden">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-title);">
+                  Catálogo de Parceiros & Cupons
+                </h3>
+                <p style="font-size: 0.88rem; color: var(--color-text-muted);">
+                  Acompanhe o estoque e o consumo de pontos dos convênios.
+                </p>
+              </div>
+              <button class="btn btn-success" id="btn-modal-new-coupon">
+                <span>➕ Adicionar Parceiro / Cupom</span>
+              </button>
+            </div>
+
+            <div class="cards-grid" id="admin-coupons-grid">
+              <!-- Injetado dinamicamente via JS -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================================
+       MODAIS
+       ===================================================================== -->
+
+  <!-- MODAL 1: SUCESSO DE RESGATE DO VOUCHER COM QR CODE -->
+  <div class="modal-overlay hidden" id="modal-voucher">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-title);">
+          🎉 Cupom Resgatado com Sucesso!
+        </h3>
+        <button class="modal-close-btn" id="btn-close-voucher-modal">✕</button>
+      </div>
+
+      <div style="text-align: center;">
+        <p style="font-size: 0.92rem; color: var(--color-text-muted);" id="modal-voucher-partner">
+          Parceria: <strong>iFood</strong>
+        </p>
+        <h4 style="font-size: 1.2rem; font-weight: 800; color: var(--color-primary); margin: 6px 0;" id="modal-voucher-title">
+          Vale Almoço / Lanche R$ 25
+        </h4>
+
+        <!-- Bloco do QR Code e Código -->
+        <div class="voucher-display">
+          <div id="modal-voucher-qrcode-svg">
+            <!-- QR Code em SVG gerado dinamicamente -->
+          </div>
+          <div style="font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted); margin-top: 8px;">
+            Apresente este código no estabelecimento ou copie para o app parceiro:
+          </div>
+          <div class="voucher-code-text" id="modal-voucher-code">
+            AJ-ALIM-84920
+          </div>
+        </div>
+
+        <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 20px;">
+          Validade: 30 dias a partir da data de hoje. Salvo na sua carteira de vouchers.
+        </p>
+
+        <button class="btn btn-primary" id="btn-ok-voucher" style="width: 100%;">
+          <span>Entendido, Ir para Meus Vouchers</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: CADASTRO DE NOVA VAGA (ADMIN) -->
+  <div class="modal-overlay hidden" id="modal-new-job">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-title);">
+          💼 Publicar Nova Vaga de Aprendizagem
+        </h3>
+        <button class="modal-close-btn" id="btn-close-job-modal">✕</button>
+      </div>
+
+      <form id="form-new-job">
+        <div class="form-group">
+          <label class="form-label">Título do Cargo</label>
+          <input type="text" class="form-input" id="new-job-title" placeholder="Ex: Jovem Aprendiz Administrativo" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Empresa Parceira</label>
+          <input type="text" class="form-input" id="new-job-company" placeholder="Ex: Banco Paraná ou LogSul" required />
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label class="form-label">Bolsa-Auxílio</label>
+            <input type="text" class="form-input" id="new-job-salary" placeholder="R$ 980,00 + VT" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Turno</label>
+            <input type="text" class="form-input" id="new-job-shift" placeholder="Ex: Manhã (8h às 12h)" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Descrição Resumida</label>
+          <textarea class="form-textarea" id="new-job-desc" rows="3" placeholder="Principais tarefas e aprendizados..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Habilidades Exigidas (separadas por vírgula)</label>
+          <input type="text" class="form-input" id="new-job-skills" placeholder="Excel, Atendimento, Comunicação" />
+        </div>
+
+        <button type="submit" class="btn btn-admin" style="width: 100%; margin-top: 10px;">
+          <span>Publicar Vaga no Portal</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- =====================================================================
+       TOAST NOTIFICATION (AVISOS FLUTUANTES)
+       ===================================================================== -->
+  <div id="toast-banner" class="toast-banner hidden">
+    <span id="toast-icon" style="font-size: 1.3rem;">✅</span>
+    <div style="flex: 1;">
+      <div id="toast-title" style="font-weight: 700; font-size: 0.9rem;">Operação realizada!</div>
+      <div id="toast-msg" style="font-size: 0.8rem; color: #cbd5e1;">Detalhes da notificação.</div>
+    </div>
+    <button id="toast-close" style="background: none; border: none; color: #94a3b8; font-size: 1.1rem; cursor: pointer;">✕</button>
+  </div>
+
+
+  <!-- =====================================================================
+       FOOTER INFERIOR
+       ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong style="color: var(--color-text-title);">Plataforma Aprendizagem Jovem</strong> · Capacitação e Empregabilidade do Jovem Aprendiz.
+      </div>
+      <div style="display: flex; gap: 16px; font-size: 0.82rem;">
+        <span>🔒 Conformidade LGPD</span>
+        <span>•</span>
+        <span>Lei da Aprendizagem (Lei 10.097/2000)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT PRINCIPAL DA APLICAÇÃO (ES MODULES / VANILLA JS) -->
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
